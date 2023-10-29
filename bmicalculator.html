@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="">Put your weight in here(KG)</label>
+
+    </div>
+    <div>
+        <input type="number" id="weight">
+    </div>
+
+    <div style="margin-top: 20px;">
+        <label for="">Put your height in here(CM)</label>
+    </div>
+
+    <div>
+        <input type="number" id="height">
+    </div>
+
+
+    <button id="mainpart" style="margin-top: 13px;">Calculate BMI</button>
+    <h2 id="print" style="margin-top: 12px;"></h2>
+</body>
+
+</html>
+<script>
+    let weight = document.getElementById("weight");
+    let height = document.getElementById("height");
+    let mainpart = document.getElementById("mainpart");
+    let print = document.getElementById("print");
+
+
+    mainpart.addEventListener("click", () => {
+        let value1 = Number(weight.value);
+        let value2 = Number(height.value);
+        value2 = value2 / 100;
+
+        let BMI = (value1) / (value2 * value2);
+        BMI = BMI.toFixed(2);
+
+        if (BMI <= 18.4) {
+            print.innerText = "Your BMI is " + BMI + " means you are UnderWeight"
+        }
+        else if (BMI >= 18.5 && BMI <= 24.9) {
+            print.innerText = "Your BMI is " + BMI + " means you are NormalWeight"
+        }
+        if (BMI >= 25 && BMI <= 29.9) {
+            print.innerText = "Your BMI is " + BMI + " means you are OverWeight"
+        }
+        if (BMI >= 30) {
+            print.innerText = "Your BMI is " + BMI + " means you are Obese"
+        }
+
+
+    })
+
+</script>
